@@ -1,0 +1,355 @@
+<html>
+	<title>
+	</title>
+    
+    
+    <head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montaga&display=swap" rel="stylesheet">
+	</head>
+   
+	<body>
+		<div class="header">
+			<h2 id="home">Karl's wavy retro shop</h2>
+			<p>Classic items for a reliable price</p>
+			
+		</div>
+		<div id="navbar">
+			<a class="active" href="#home">Home</a>
+			<a href="#cart2">Cart</a>
+			<a href="javascript:dev();">Contacts</a>
+		</div>
+	
+	
+		<div id="itemsdiv">
+		
+		</div>
+		<div class="header">
+			<br>
+		</div>
+		<br>
+	</body>
+
+<style> 
+</style>
+
+<script>
+console.log("1")
+var items = [
+        {
+            "id": 0,
+            "title": "Hat",
+            "imageURL": "https://i.imgur.com/HgIzJ0O.png",
+            "description": "A cap, worn by skateboarding legend Tony Hawk in 2004",
+            "price": 35.99
+        },
+        {
+            "id": 1,
+            "title": "Guitar",
+            "imageURL": "https://i.imgur.com/1pc347r.png",
+            "description": "Played by Post Malone in 2018 at Weekend Festival Baltic 2018",
+            "price": 9240
+        },
+        {
+            "id": 2,
+            "title": "Headset",
+            "imageURL": "https://i.imgur.com/BU1u53U.png",
+            "description": "Classic headphones worn by basketball legend Scottie Pippen in 1994",
+            "price": 250
+        },
+        {
+            "id": 3,
+            "title": "Backpack",
+            "imageURL": "https://i.imgur.com/WOGQ3ll.png",
+            "description": "25 liters travel fake-leather",
+            "price": 59.99
+        },
+        {
+            "id": 4,
+            "title": "Glasses",
+            "imageURL": "https://i.imgur.com/KQssRzO.png",
+            "description": "-3.75 left eye -4.25 right eye. Can you buy glasses like this somewhere else? You cannot.",
+            "price": 158.45
+        },
+        {
+            "id": 5,
+            "title": "Camera",
+            "imageURL": "https://i.imgur.com/hifcDsd.png",
+            "description": "Legendary film camera, works good and comes with film",
+            "price": 47.15
+        },
+        {
+            "id": 6,
+            "title": "Skateboard",
+            "imageURL": "https://i.imgur.com/KiZi7HQ.png",
+            "description": "Nyjah Houston's SLS 2014 Super Crown winning autographed board.",
+            "price": 1400
+        },
+        {
+            "id": 7,
+            "title": "Shirt",
+            "imageURL": "https://i.imgur.com/4OZIWFV.png",
+            "description": "First Palace Skateboarding shirt. Really wanted by hypebeasts",
+            "price": 800
+        },
+        {
+            "id": 8,
+            "title": "Sneakers",
+            "imageURL": "https://i.imgur.com/4GtCkkJ.png",
+            "description": "Worn by Michael Jordan in June 14, 1998. His last game for the Chicago Bulls vs Utah. Legendary game, legendary sneakers.",
+            "price": 2000
+        },
+        {
+            "id": 9,
+            "title": "Shoes",
+            "imageURL": "https://i.imgur.com/uRXDvwK.png",
+            "description": "Just shoes.",
+            "price": 30
+        },
+        {
+            "id": 10,
+            "title": "Red Hat",
+            "imageURL": "https://i.imgur.com/qvwxXYY.png",
+            "description": "Playboi Carti's signature hat. Worn by him on his Die Lit US tour",
+            "price": 499.99
+        },
+        {
+            "id": 11,
+            "title": "Brown Beanie",
+            "imageURL": "https://i.imgur.com/zZAtqkD.png",
+            "description": "Worn by Frank Ocean, timeless piece of fashion.",
+            "price": 8598.99
+        },
+        {
+            "id": 12,
+            "title": "Blue Jeans",
+            "imageURL": "https://i.imgur.com/PMFkkjS.png",
+            "description": "Random Levi's skateboarding jeans.",
+            "price": 49.99
+        },
+        {
+            "id": 13,
+            "title": "Brown Pants",
+            "imageURL": "https://i.imgur.com/PmCMb4p.png",
+            "description": "Worn by Tyler, The Creator, at Grammys 2020 for his best rap album winning speech.",
+            "price": 699.99
+        },
+        {
+            "id": 14,
+            "title": "Radio",
+            "imageURL": "https://i.imgur.com/Xd1YRFS.png",
+            "description": "Random radio found at a thrift shop. Works decently.",
+            "price": 5.99
+        }        
+    ];
+console.log("starting script")
+clickdeliver = 0;
+index1 = 0;
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+
+window.onresize = function() {myFunction2()};
+
+function myFunction2() {
+var rez = document.getElementById("cart2");
+if (window.innerWidth < 1250) {
+	if (window.innerWidth < 960) {rez.setAttribute("class", "cart3");}
+	else {rez.setAttribute("class", "cart4");}}
+else {rez.setAttribute("class", "cart5");}
+}
+
+var countno = 0;
+function dev() {
+
+if (countno > 20) {
+var delayInMilliseconds = 2000;
+
+document.body.innerHTML = ''
+setTimeout(function() {
+	countno = -9999;
+}, delayInMilliseconds);}
+}
+
+
+for (var index = 0; index < items.length; index++) {
+	// setup variables
+	let item = items[index] 
+	itemsHTML = document.getElementById("itemsdiv");
+	totalPrice = 0;
+
+
+	console.log("for looping...")
+	console.log(items[index]);
+	// create div
+	currentid = "Div" + index
+	var thediv = document.createElement("div");
+	thediv.setAttribute("id", currentid);
+	thediv.setAttribute("class", "itemblock");
+	document.getElementById('itemsdiv').appendChild(thediv);  
+	
+	
+	
+	var imageURL = document.createElement("img"); // add images
+	imageURL.src = items[index].imageURL;
+	imageURL.setAttribute("height", "64");
+	imageURL.setAttribute("length", "64");
+	thediv.appendChild(imageURL);
+	var title = document.createElement("p"); // add names
+	title.innerHTML = items[index].title;
+	thediv.appendChild(title);
+	console.log(items[index].title);
+	var desc = document.createElement("p"); // add descriptions
+	desc.innerHTML = items[index].description;
+	thediv.appendChild(desc);
+	var price = document.createElement("p"); // add price
+	price.innerHTML = items[index].price + " €";
+	thediv.appendChild(price);
+	items[index].count = 0;
+
+	
+	var addToCart = document.createElement("button"); // add "Add" button
+	addToCart.innerHTML = "Add";
+	addToCart.addEventListener("click", function(index) {
+	item.count++
+	console.log(item.title + " count: "+ item.count)
+	
+	totalPrice = totalPrice + item.price;
+	totalPrice = parseFloat(totalPrice.toFixed(2));
+	console.log("Total is " + totalPrice);
+	updatePrice();
+	});
+	thediv.appendChild(addToCart);
+
+	
+	
+	
+	var br = document.createElement("br"); // add breaks
+	thediv.appendChild(br);
+	var br = document.createElement("br");
+	thediv.appendChild(br);
+}
+
+
+var priceHTML = document.createElement("div");
+priceHTML.setAttribute("id", "priceHTML");
+document.body.appendChild(priceHTML);
+
+var cart2 = document.createElement("div");
+cart2.setAttribute("id", "cart2");
+document.getElementById('priceHTML').appendChild(cart2);
+var rez = document.getElementById("cart2");
+if (window.innerWidth < 1250) {
+	if (window.innerWidth < 960) {rez.setAttribute("class", "cart3");}
+	else {rez.setAttribute("class", "cart4");}}
+else {rez.setAttribute("class", "cart5");}
+
+var cart1 = document.createElement("div");
+cart1.setAttribute("id", "cart1");
+document.getElementById('priceHTML').appendChild(cart1);
+
+var priceHTMLtext = document.createElement("p");
+priceHTMLtext.setAttribute("id", "priceHTMLtext");
+document.getElementById('cart1').appendChild(priceHTMLtext);
+priceHTMLtext.innerHTML = "Total: " + totalPrice + " €";
+
+
+
+var arr = [];
+for (var i = 0; i < items.length; ++i) {
+      arr[i] = items[i].price;
+}
+console.log(arr)
+
+
+
+// update price
+function updatePrice() { 
+	priceHTMLtext.innerHTML = "Total: " + totalPrice + " €";
+	// manage cart
+	for (var index1 = 0; index1 < items.length; index1++) {
+		if (items[index1].count > 0) {
+			if(document.getElementById("cartitem" + index1)) { // modify cart item
+			tempmod = document.getElementById("mod" + index1);
+			ptext = items[index1].count + " X " + items[index1].price + " €";
+			tempmod.innerHTML = ptext;
+			
+			
+			}
+			else { // create cart item
+			temp = document.createElement("div");
+			temp.setAttribute("class", "cartitem");
+			temp.setAttribute("id", "cartitem" + index1);
+			document.getElementById('cart2').appendChild(temp);
+			
+			// add "Remove" button
+			var temp0 = document.createElement("button");
+			temp0.innerHTML = "X";
+			temp0.setAttribute("id", index1);
+			temp0.setAttribute("class", "buttonX");
+			temp0.setAttribute("onclick", "clickdeliver = this.id;addbtn();")
+			document.getElementById("cartitem" + index1).appendChild(temp0); 
+
+			// add img to cart item
+			temp = document.createElement("img");
+			temp.src = items[index1].imageURL;
+			temp.setAttribute("class", "cartimg");
+			document.getElementById("cartitem" + index1).appendChild(temp);
+			
+			// add title to cart item
+			temp = document.createElement("p");
+			temp.innerHTML = items[index1].title;
+			temp.setAttribute("class", "carttitle");
+			document.getElementById("cartitem" + index1).appendChild(temp);
+			
+			// add price to cart item
+			temp = document.createElement("p");
+			ptext = items[index1].count + " X " + items[index1].price + " €";
+			temp.innerHTML = ptext;
+			temp.setAttribute("class", "carttitle");
+			temp.setAttribute("id", "mod" + index1);
+			document.getElementById("cartitem" + index1).appendChild(temp);
+			
+			
+			
+			
+			
+			}
+			
+			
+		}
+		else { // remove cart item
+			if(document.getElementById("cartitem" + index1)) {
+				var temp = document.getElementById("cartitem" + index1);
+				var temp2 = document.getElementById("cart2");
+				cart2.removeChild(temp);
+			}
+		}
+		
+	}
+}
+
+
+function addbtn() {
+index1 = clickdeliver;
+if (items[index1].count > 0)	{
+	items[index1].count--
+	totalPrice = totalPrice - items[index1].price;
+	totalPrice = parseFloat(totalPrice.toFixed(2));
+	console.log("Total is " + totalPrice);
+	updatePrice();
+}};
+
+
+</script>
+
+</html>
